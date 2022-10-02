@@ -1,0 +1,24 @@
+{
+  "name": "node_todo",
+  "version": "1.0.0",
+  "main": "todo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "hbs": "^4.2.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Witut2005/nodejs-todo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Witut2005/nodejs-todo/issues"
+  },
+  "homepage": "https://github.com/Witut2005/nodejs-todo#readme",
+  "description": ""
+}

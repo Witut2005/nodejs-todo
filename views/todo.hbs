@@ -1,0 +1,119 @@
+
+<html>
+
+    <head>
+        <meta charset="UTF-8"/>
+        <title>todo</title>
+    </head>
+
+    <body>
+    
+        <form method="post" action="/submit-task">
+        <input type="text" id="new_task"/>
+        <button id="submit-task">dodaj zadanie</button>
+        </form>
+
+        </br>
+        </br>
+
+        <div id="main-container">
+        
+        </div>
+
+
+    
+    <script>
+
+        NumberOfTasks = 0
+        DeleteButton = []
+
+        window.onload = () =>
+        {
+            NewTodo = document.getElementById('submit-task')
+            NewTodo.addEventListener('click', () => 
+            {
+
+                
+            const NewTaskName = document.getElementById('new_task')
+            console.log(String(NewTaskName.value).length)
+
+            if(String(NewTaskName.value).length > 20)
+            {
+                alert('Task Name is too long')
+                NewTaskName.value = ''
+                return
+            }
+
+            else if(String(NewTaskName.value).length == 0)
+            {
+                alert('Task Name filed is empty')
+                NewTaskName.value = ''
+                return
+            }
+
+            TaskList = document.getElementById('main-container')
+            
+            
+            TaskDiv = document.createElement('div')
+            TaskNameDiv = document.createElement('div')
+            DeleteButton.push(document.createElement('button'))
+            
+            TaskDiv.setAttribute('width', '100%')
+            DeleteButton[NumberOfTasks].setAttribute('id', NumberOfTasks)
+            
+
+            TaskNameDiv.appendChild(document.createTextNode(NewTaskName.value))
+            DeleteButton[NumberOfTasks].appendChild(document.createTextNode('delete'))
+            
+            TaskList.appendChild(TaskDiv)
+            TaskDiv.appendChild(TaskNameDiv)
+            TaskDiv.appendChild(DeleteButton[NumberOfTasks])
+        
+            
+            DeleteButton[NumberOfTasks].addEventListener('click', () => 
+            {
+                console.log('task deleted')
+                console.log(event.srcElement.id)
+                DeleteButton[event.srcElement.id].parentElement.remove()
+            })
+
+            NumberOfTasks++
+            NewTaskName.value = ''
+        
+            })
+        }
+    
+    </script>
+
+    <style>
+
+        body > div > div
+        {
+            height: 50px;
+            clear: both;
+        }
+
+        body > div > div > div
+        {
+            padding: 10px;
+            width: 200px;
+            float: left;
+            border: 1px solid black;
+            margin-right: 10px;
+        }
+
+        body > div > div > button 
+        {
+            padding: 10px;
+            float: left;
+            border-radius: 10px;
+        }
+
+    </style>
+
+    </body>
+
+
+
+
+</html>
